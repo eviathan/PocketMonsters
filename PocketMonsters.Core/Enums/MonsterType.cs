@@ -1,5 +1,6 @@
 namespace PocketMonsters.Core.Enums
 {
+    // TODO: Define these properly
     public enum MonsterType
     {
         Normal,

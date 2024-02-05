@@ -5,5 +5,8 @@ using System.Threading.Tasks;
 
 namespace PocketMonsters.Core.Entities
 {
-    public class Inventory : Dictionary<Guid, int> { } 
+    public class Inventory : Dictionary<Guid, int>
+    { 
+        
+    } 
 }
