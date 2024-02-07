@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PocketMonsters.Core.Enums;
 
 namespace PocketMonsters.Core.Interfaces
 {
-    public interface IWearable : IItem, IBuffable, IPurchasable
+    public interface IItem
     {
-        int Weight { get; set; }
+        Guid Id { get; set; }
+        ItemType Type { get; set; }
     }
 }

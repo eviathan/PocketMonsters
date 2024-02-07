@@ -4,13 +4,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PocketMonsters.Engine;
 
-public class Game1 : Game
+public class PocketMonstersGame : Game
 {
+    private readonly GameManager _gameManager;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    public Game1()
+    public PocketMonstersGame()
     {
+        _gameManager = new GameManager();
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -18,16 +20,16 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
+        _gameManager.HandleInitialisation();
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
+        // TODO: Deal with sprite batching for multiple sprite batchers
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
+        _gameManager.HandleLoading(_spriteBatch);
     }
 
     protected override void Update(GameTime gameTime)
@@ -35,7 +37,7 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        // TODO: Add your update logic here
+        _gameManager.HandleUpdate(gameTime);
 
         base.Update(gameTime);
     }
@@ -44,7 +46,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        // TODO: Add your drawing code here
+        _gameManager.HandleDrawing(Content, gameTime);
 
         base.Draw(gameTime);
     }

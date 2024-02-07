@@ -1,3 +1,3 @@
 ﻿
-using var game = new PocketMonsters.Engine.Game1();
+using var game = new PocketMonsters.Engine.PocketMonstersGame();
 game.Run();

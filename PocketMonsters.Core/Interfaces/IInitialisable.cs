@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace PocketMonsters.Core.Interfaces
 {
-    public interface IWearable : IItem, IBuffable, IPurchasable
+    public interface IInitialisable
     {
-        int Weight { get; set; }
+        void Initialise();
     }
 }
